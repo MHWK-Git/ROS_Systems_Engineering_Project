@@ -21,11 +21,6 @@ class Seeker:
   #white
   low = numpy.array([ 0, 0, 250])
   high = numpy.array([ 180, 20, 255])
-  #yellow
-  #low = numpy.array([ 15, 100, 0])
-  #high = numpy.array([ 36, 255, 255])
-  #low = numpy.array([ 0, 0, 0])
-  #high = numpy.array([ 179, 255, 255])
 
   mask = cv2.inRange(hsv, low, high)
 
@@ -50,8 +45,6 @@ class Seeker:
    err = cx - w/2
    self.Twist.linear.x = 0.1
    self.Twist.angular.z = -float(err) / 590
-   #self.Twist.linear.x = 0.00
-   #self.Twist.angular.z = 0.00
    self.cmd_vel_pub.publish(self.Twist)
 
   cv2.imshow("view",cv_image)
